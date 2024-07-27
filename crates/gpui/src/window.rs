@@ -2056,7 +2056,7 @@ impl<'a> WindowContext<'a> {
             })
     }
 
-    /// Provide elements in the called function with a new namespace in which their identiers must be unique.
+    /// Provide elements in the called function with a new namespace in which their identifiers must be unique.
     /// This can be used within a custom element to distinguish multiple sets of child elements.
     pub fn with_element_namespace<R>(
         &mut self,
@@ -4419,7 +4419,7 @@ impl<'a, V: 'static> ViewContext<'a, V> {
     /// Many GPUI callbacks take the form of `Fn(&E, &mut WindowContext)`,
     /// but it's often useful to be able to access view state in these
     /// callbacks. This method provides a convenient way to do so.
-    pub fn listener<E>(
+    pub fn listener<E: ?Sized>(
         &self,
         f: impl Fn(&mut V, &E, &mut ViewContext<V>) + 'static,
     ) -> impl Fn(&E, &mut WindowContext) + 'static {
