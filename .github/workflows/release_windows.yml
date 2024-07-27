@@ -18,6 +18,8 @@ jobs:
       run: |
         cargo build --release
 
-    - name: Run dir
-      run: |
-        dir ./target
+    - name: Upload build
+      uses: actions/upload-artifact@v4
+      with:
+        name: target
+        path: ./target
